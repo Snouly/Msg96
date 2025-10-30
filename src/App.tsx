@@ -209,13 +209,13 @@ const Messages = () => {
         }
     }
 
-    // Для клика
+    // Click
     const handleClick = (event: MouseEvent) => {
         handleSendMessage()
         debugFunc('click on send button', 'debug')
     }
 
-    // Для Enter
+    // Enter
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
@@ -246,7 +246,6 @@ const Messages = () => {
             </div>
         </div>
     )
-
 }
 
 
