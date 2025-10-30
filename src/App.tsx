@@ -7,6 +7,7 @@ import { useUser, type UserProps } from './sorces/userStore'
 import dayjs from 'dayjs' 
 import { v4 as uuidv4 } from 'uuid'
 import { debugFunc } from './lib/debugUtils'
+import { useRef } from 'react';
 
 
 // Временный массив до создания хранилища
@@ -182,14 +183,14 @@ const Messages = () => {
     })))
 
     const [message, setMessage] = useState('');
+    const textareaRef = useRef<HTMLTextAreaElement>(null); 
     
     const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(event.target.value)
     }
 
-    const handleClick = (event: MouseEvent) => {
-        
-        if (message != '') {
+    const handleSendMessage = () => {
+        if (message.trim() !== '') {
             addMessage({
                 messageId: uuidv4(), 
                 chatId: uuidv4(), 
@@ -199,30 +200,53 @@ const Messages = () => {
                 messageSendTime: `${dayjs().format('HH:mm')}`
             })
             setMessage("")
+
+            if (textareaRef.current) {
+                textareaRef.current.focus();
+            }
+
             debugFunc('message sended', 'debug')
         }
+    }
+
+    // Для клика
+    const handleClick = (event: MouseEvent) => {
+        handleSendMessage()
         debugFunc('click on send button', 'debug')
+    }
+
+    // Для Enter
+    const handleKeyPress = (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            handleSendMessage()
+            debugFunc('Enter key pressed', 'debug')
+        }
     }
 
     return (
         <div>
-        <div className="messageSend">
+            <div className="messageSend">
                 <div className="messageWrite">
                     <textarea
                         className="messageInput"
                         placeholder="Type a message..."
                         onChange={handleChange}
-                        value={message} 
+                        value={message}
+                        onKeyPress={handleKeyPress}  
+                        ref={textareaRef} 
                     />
                 </div> 
                 <div 
                     className="sendButton" 
-                    onClick={handleClick}>
-                        <div className='sendWord'>Send</div>
+                    onClick={handleClick}
+                >
+                    <div className='sendWord'>Send</div>
                 </div>
             </div>
         </div>
     )
+
 }
 
 
