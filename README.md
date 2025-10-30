@@ -1,4 +1,4 @@
-# 95 Messenger
+# Msg96
 
 React chat app with Windows 95 style.
 
