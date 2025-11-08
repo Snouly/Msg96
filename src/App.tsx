@@ -1,13 +1,15 @@
-import { useShallow } from 'zustand/react/shallow'
-import { use, useState, type ChangeEvent } from 'react'
-import { BrowserRouter } from "react-router";
-import './App.css'
-import { useMessages, type MessageProps } from './sorces/messageStore'
-import { useUser, type UserProps } from './sorces/userStore'
-import dayjs from 'dayjs' 
-import { v4 as uuidv4 } from 'uuid'
-import { debugFunc } from './lib/debugUtils'
+import { useShallow } from 'zustand/react/shallow';
+import { use, useState, type ChangeEvent } from 'react';
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router";
+import './App.css';
+import { useMessages, type MessageProps } from './sorces/messageStore';
+import { useUser, type UserProps } from './sorces/userStore';
+import dayjs from 'dayjs';
+import { v4 as uuidv4 } from 'uuid';
+import { debugFunc } from './lib/debugUtils';
 import { useRef } from 'react';
+
+
 
 
 // Временный массив до создания хранилища
@@ -252,13 +254,35 @@ const Messages = () => {
 
 
 function App() {
-
+    const navigate = useNavigate()
     const {messages} = useMessages(useShallow(state=>({
         messages: state.messages
     })))
     
+    const handleWrongPage = () => {
+        navigate("/wrongPage")
+    }
+
+    const handleRegisterPage = () => {
+        navigate("/reg")
+    }
+
     return (
-        <div className="mainBlock">
+            <div className="mainBlock">
+                <div className="debugButtons">
+                {[
+                    {
+                        str: "WrongPage",    
+                        onClick: handleWrongPage
+                    },
+                    {
+                        str: "Registration",
+                        onClick: handleRegisterPage
+                    }
+                ].map(el => <div className="debugButton" onClick={el.onClick}>{el.str}</div>
+                )}
+
+            </div>
             <Nav></Nav>
             <div className="chat">
                 <div className="contactInfo">
