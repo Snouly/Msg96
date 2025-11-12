@@ -1,15 +1,7 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router";
-import { NotFoundPage } from "../NotFoundPage.tsx";
-
 import './index.css'
-import App from './App.tsx'
+import { App } from "./app/App.tsx";
 
 createRoot(document.getElementById('root')!).render(
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<App/>}/>
-            <Route path="*" element={<NotFoundPage/>}/>
-        </Routes>
-    </BrowserRouter>
+    <App/>
 )

@@ -1,0 +1,186 @@
+img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+.mainBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.window {
+    background-color: #C0C0C0;
+    width: 400px;
+    height: auto;
+    /* height: 510px; */
+    padding: 2px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: #fff;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: silver;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    margin-left: 200px;
+}
+
+.titlebar {
+    display: flex;
+    gap: 5px;
+    height: 24px;
+    width: 100%;    
+    color: #fff;
+    background-color: #000080;
+    padding: 2px;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.monitorIcon {
+    height: 100%;
+}
+
+.text {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.buttons {
+    margin-left: auto; 
+    height: 100%;
+}
+
+
+
+.heading {
+    height: 38px;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 8px;
+}
+
+
+
+.regInputs {
+    display: flex;
+    flex-direction: column;
+    /* height: 300px; */
+    height: auto;
+    width: 100%;
+    gap: 10px;
+    padding-bottom: 25px;
+}
+
+.dataInput {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.input {
+    line-height: 100%;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-family: 'EpilepsySans', sans-serif;    
+    font-size: 100%;
+    font-style: normal;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.photoSelect {
+    height: 24px;
+    width: 100%;
+    border-width: 2px;
+    border-style: outset;
+    border-color: #fff;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: silver;
+    color: black;
+    padding: 0px;
+    /* padding-right: 0px;
+    padding-left: 0px; */
+    /* border-radius: 1px; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.regBtn {
+    height: 24px;
+    width: 20%;
+    border-width: 2px;
+    border-style: outset;
+    border-color: #fff;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: silver;
+    color: black;
+    padding: 0;
+    /* padding-right: 0px;
+    padding-left: 0px; */
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* margin: 8px; */
+}
+
+
+.clippyBox {
+    /* width: 400px; */
+    height: 343px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clippy {
+    width: 200px;
+}
+
+.downButtons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 8px;
+    gap: 8px;
+    
+}
+
+

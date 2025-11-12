@@ -5,3 +5,12 @@ export const debugFunc = (debugMess: string, method: keyof Console = 'log') => {
         console[method](debugMess);
     }
 }
+
+export const isDebugOn = () => {
+    if (debugMode){
+        return true
+    }
+    else{
+        return false
+    }
+}
